@@ -70,8 +70,8 @@ export default function SpacingGrid() {
     const [feelsLike, setFeelsLike] = React.useState("30");
     const [humidity, setHumidity] = React.useState("30");
     const [iconCode, setIconCode] = React.useState("11n");
-    const defaultTextValueTemplate = `Salut,\n\n Doar ce am vazut ca afara sunt ${temperature} grade si se simt de parca ar fi ${feelsLike}. Voi iesi in parcul <X> cu inca 2 amici.\n\n Te astept si pe tine.\n Prietenul tau <Nume> `
-    const [currentText, setCurrentText] = React.useState(defaultTextValueTemplate);
+   
+    const [currentText, setCurrentText] = React.useState(`Salut,\n\n Doar ce am vazut ca afara sunt ${temperature} grade si se simt de parca ar fi ${feelsLike}. Voi iesi in parcul <X> cu inca 2 amici.\n\n Te astept si pe tine.\n Prietenul tau <Nume> `);
 
     const [senderName, setSenderName] = React.useState("");
     const [language, setLanguage] = React.useState("");
@@ -227,7 +227,7 @@ export default function SpacingGrid() {
                                         multiline
                                         minRows={10}
                                         onChange={handleTextAreaChange}
-                                        value={defaultTextValueTemplate}
+                                        value={currentText}
                                         variant="outlined"
                                     />
 
