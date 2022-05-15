@@ -7,9 +7,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ComboBox from './ComboBox';
 import axios from "axios"
-import ComboBoxLimbi from './ComboBoxLimbi';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -91,15 +90,12 @@ export default function SpacingGrid() {
                 setFeelsLike(result.data.main.feels_like);
                 setHumidity(result.data.main.humidity);
             }
-            console.log(iconCode);
         }
         fetchData();
-    }, []);
+    }, [selectedCity]);
     const handleTextAreaChange = (e) => {
         e.preventDefault();
         setCurrentText(e.target.value);
-        // console.log(currentText);
-        console.log(language);
     }
 
     const handleReceiverEmail = (e) => {
@@ -110,8 +106,12 @@ export default function SpacingGrid() {
     }
     const handleLanguage = (e) => {
         setLanguage(e.target.value);
-
     }
+    const handleCityChange = (e) => {
+        setSelectedCity(e.target.value);
+        console.log(selectedCity)
+    }
+
     const sendEmail = async (e) => {
         e.preventDefault();
         console.log(currentText);
@@ -139,7 +139,23 @@ export default function SpacingGrid() {
 
                     <Grid key={1} item>
                         <Paper elevation={5} className={classes.paper} >
-                            <ComboBox helperText="Orasul dorit"></ComboBox>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel id="demo-simple-select-label">Alegeti orasul dorit</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={selectedCity}
+                                    onChange={handleCityChange}
+                                >
+                                    <MenuItem value={"Bucharest"}>Bucuresti</MenuItem>
+                                    <MenuItem value={'Iasi'}>Iasi</MenuItem>
+                                    <MenuItem value={'Cluj'}>Cluj</MenuItem>
+                                    <MenuItem value={'Tecuci'}>Tecuci</MenuItem>
+                                    <MenuItem value={'Timisoara'}>Timisoara</MenuItem>
+                                    <MenuItem value={'Constanta'}>Constanta</MenuItem>
+
+                                </Select>
+                            </FormControl>
                             <Avatar src={`https://openweathermap.org/img/wn/${iconCode}@2x.png`} style={{ display: "flex", margin: "auto", width: "12rem", height: "12rem" }}></Avatar>
                             <Card elevation={0} className={classes.cardroot}>
                                 <CardContent>
@@ -211,7 +227,7 @@ export default function SpacingGrid() {
                                         multiline
                                         minRows={10}
                                         onChange={handleTextAreaChange}
-                                        defaultValue={defaultTextValueTemplate}
+                                        value={defaultTextValueTemplate}
                                         variant="outlined"
                                     />
 

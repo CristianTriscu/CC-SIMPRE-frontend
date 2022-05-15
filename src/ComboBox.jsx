@@ -19,5 +19,9 @@ export default function ComboBox() {
 const cities = [
   { nume: 'Bucuresti', id: 1, nameToUse:"Bucharest" },
   { nume: 'Iasi', id:2, nameToUse:"Iasi"},
+  { nume: 'Cluj', id: 3, nameToUse:"Cluj" },
+  { nume: 'Tecuci', id:4, nameToUse:"Tecuci"},
+  { nume: 'Timisoara', id:4, nameToUse:"Timisoara"},
+  { nume: 'Constanta', id:4, nameToUse:"Constanta"},
  
 ];
