@@ -1,4 +1,4 @@
-# Backend-ul aplicatiei pentru proiectul de Cloud Computing SIMPRE 2022
+# FrontEnd-ul aplicatiei pentru proiectul de Cloud Computing SIMPRE 2022
 
 Proiect Cloud Computing SIMPRE 2022, Triscu Cristian, grupa 1119
 
